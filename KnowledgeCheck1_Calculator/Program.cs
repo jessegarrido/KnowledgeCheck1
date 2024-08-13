@@ -14,7 +14,7 @@ namespace KnowledgeCheck1_Calculator
                 Console.WriteLine("Press 1 for addition, 2 for subtraction, 3 for multiplication, and 4 for division");
                 selection = calculator.UserInput();
             } while (selection < 1 || selection > 4);
-            Console.WriteLine($"You chose {selection}");
+            //Console.WriteLine($"You chose {selection}");
             Console.WriteLine("Enter the first integer: ");
             var numOne = calculator.UserInput();
             Console.WriteLine("Enter another integer: ");
@@ -34,6 +34,11 @@ namespace KnowledgeCheck1_Calculator
                     Console.Write(calculator.Multiply(numOne, numTwo));
                     break;
                 case 4:
+                    while (numTwo == 0)
+                        {
+                            Console.WriteLine("Please enter a non-zero divisor: ");
+                            numTwo = calculator.UserInput();
+                        }; 
                     Console.Write($"{numOne} / {numTwo} = ");
                     Console.Write(calculator.Divide(numOne, numTwo));
                     break;

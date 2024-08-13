@@ -28,24 +28,24 @@ namespace KnowledgeCheck1_Calculator
 
         public double Divide(double first, double second)
         {
-            return first / second;
+             return first / second;
         }
-        public int UserInput()  // get userinput, require an integer
+        public int UserInput()  // acquire an integer from user
         {
             string input;
-            int? valInt = null;
+            int? validInt = null;
             do
             {
                 input = Console.ReadLine();
                 if (int.TryParse(input, out int userVal))
                 {
-                    valInt = userVal;
+                    validInt = userVal;
                 } else
                 {
-                    Console.WriteLine($"{input} is not valid, please try again.");
+                    Console.WriteLine($"{input} is not valid.");
                 }
-            } while (valInt == null);
-            return valInt ?? 0; // coalesce to guarantee non-null return value
+            } while (validInt == null);
+            return validInt ?? 0; // coalesce to promise non-null return
         }
     }
 }
